@@ -9,6 +9,41 @@
     />
     <title>Sistem Keuangan GMIM</title>
 
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind config (must be defined before CDN script) -->
+    <script>
+      tailwind = {
+        config: {
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: [
+                  '"Plus Jakarta Sans"',
+                  "ui-sans-serif",
+                  "system-ui",
+                  "-apple-system",
+                  "Segoe UI",
+                  "Roboto",
+                  "Helvetica Neue",
+                  "Arial",
+                  "Noto Sans",
+                  "Apple Color Emoji",
+                  "Segoe UI Emoji"
+                ]
+              }
+            }
+          }
+        }
+      }
+    </script>
+
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -28,9 +63,9 @@
       }
       body {
         margin: 0;
-        font-family: sans-serif;
+        font-family: "Plus Jakarta Sans", sans-serif;
         color: #1f2937;
-        background: #fff;
+        background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
       }
       a {
         color: inherit;
@@ -270,21 +305,62 @@
       html {
         scroll-behavior: smooth;
       }
+
+      /* --- Minor polish even without Tailwind --- */
+      ::selection {
+        background: rgba(29, 78, 216, 0.18);
+      }
     </style>
   </head>
-  <body class="font-sans text-gray-800 bg-white">
+  <body class="font-sans text-slate-800 bg-slate-50 antialiased">
+    <!-- Decorative background blobs -->
+    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div
+        class="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-blue-300/30 blur-3xl"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="absolute top-40 -right-24 h-96 w-96 rounded-full bg-indigo-300/20 blur-3xl"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="absolute -bottom-24 left-1/3 h-80 w-80 rounded-full bg-amber-200/30 blur-3xl"
+        aria-hidden="true"
+      ></div>
+    </div>
+
     <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-white shadow-md">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200/60">
       <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        <a href="#hero" class="nav-logo text-xl font-bold text-blue-800">GMIM Keuangan</a>
+        <a href="#hero" class="nav-logo text-lg sm:text-xl font-extrabold tracking-tight text-blue-900">
+          GMIM Keuangan
+        </a>
 
         <!-- Desktop nav links -->
         <ul class="hidden md:flex gap-6 text-sm font-medium text-gray-700">
-          <li><a href="#hero" class="hover:text-blue-700">Beranda</a></li>
-          <li><a href="#fitur" class="hover:text-blue-700">Fitur</a></li>
-          <li><a href="#jemaat" class="hover:text-blue-700">Jemaat</a></li>
-          <li><a href="#kontak" class="hover:text-blue-700">Kontak</a></li>
+          <li>
+            <a href="#hero" class="hover:text-blue-700 transition-colors">Beranda</a>
+          </li>
+          <li>
+            <a href="#fitur" class="hover:text-blue-700 transition-colors">Fitur</a>
+          </li>
+          <li>
+            <a href="#jemaat" class="hover:text-blue-700 transition-colors">Jemaat</a>
+          </li>
+          <li>
+            <a href="#kontak" class="hover:text-blue-700 transition-colors">Kontak</a>
+          </li>
         </ul>
+
+        <!-- Desktop CTA -->
+        <div class="hidden md:flex items-center gap-3">
+          <a
+            href="https://app.gmim-keuangan.id/login"
+            class="inline-flex items-center justify-center rounded-xl bg-blue-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-800 transition-colors"
+          >
+            Masuk
+          </a>
+        </div>
 
         <!-- Hamburger button (mobile) -->
         <button
@@ -308,62 +384,114 @@
       </div>
 
       <!-- Mobile menu -->
-      <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-        <ul class="flex flex-col px-4 py-2 gap-2 text-sm font-medium text-gray-700">
-          <li><a href="#hero" class="block py-2 hover:text-blue-700">Beranda</a></li>
-          <li><a href="#fitur" class="block py-2 hover:text-blue-700">Fitur</a></li>
-          <li><a href="#jemaat" class="block py-2 hover:text-blue-700">Jemaat</a></li>
-          <li><a href="#kontak" class="block py-2 hover:text-blue-700">Kontak</a></li>
+      <div id="mobile-menu" class="hidden md:hidden bg-white/90 backdrop-blur border-t border-gray-100">
+        <ul class="flex flex-col px-4 py-3 gap-1 text-sm font-medium text-gray-700">
+          <li><a href="#hero" class="block rounded-lg px-3 py-2 hover:bg-blue-50 hover:text-blue-800">Beranda</a></li>
+          <li><a href="#fitur" class="block rounded-lg px-3 py-2 hover:bg-blue-50 hover:text-blue-800">Fitur</a></li>
+          <li><a href="#jemaat" class="block rounded-lg px-3 py-2 hover:bg-blue-50 hover:text-blue-800">Jemaat</a></li>
+          <li><a href="#kontak" class="block rounded-lg px-3 py-2 hover:bg-blue-50 hover:text-blue-800">Kontak</a></li>
+          <li class="pt-2">
+            <a
+              href="https://app.gmim-keuangan.id/login"
+              class="inline-flex w-full items-center justify-center rounded-xl bg-blue-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-800 transition-colors"
+            >
+              Masuk ke Sistem
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
 
     <main>
       <!-- Hero Section -->
-      <section id="hero" class="min-h-screen flex items-center bg-gradient-to-br from-blue-50 to-white">
-        <div class="max-w-6xl mx-auto px-4 py-16 w-full">
-          <div class="hero-grid grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <section id="hero" class="min-h-screen flex items-center">
+        <div class="max-w-6xl mx-auto px-4 py-16 sm:py-24 w-full">
+          <div class="hero-grid grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div>
-              <h1 class="text-4xl md:text-5xl font-bold text-blue-900">Sistem Keuangan GMIM</h1>
-              <p class="text-lg text-gray-600 mt-4">
+              <div
+                class="inline-flex items-center gap-2 rounded-full border border-blue-200/60 bg-white/70 px-3 py-1 text-xs font-semibold text-blue-800 shadow-sm"
+              >
+                <span class="inline-block h-2 w-2 rounded-full bg-blue-600" aria-hidden="true"></span>
+                Transparan • Terstruktur • Mudah
+              </div>
+
+              <h1 class="mt-5 text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
+                Sistem Keuangan
+                <span class="bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">GMIM</span>
+              </h1>
+              <p class="text-lg text-slate-600 mt-4 leading-relaxed">
                 Kelola keuangan gereja secara transparan, terstruktur, dan mudah diakses oleh seluruh jemaat dan
                 pengurus.
               </p>
-              <a
-                href="https://app.gmim-keuangan.id/login"
-                class="cta-btn inline-block mt-8 px-8 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors font-semibold"
-              >
-                Masuk ke Sistem
-              </a>
+
+              <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                <a
+                  href="https://app.gmim-keuangan.id/login"
+                  class="cta-btn inline-flex items-center justify-center px-8 py-3 bg-blue-700 text-white rounded-xl hover:bg-blue-800 transition-colors font-semibold shadow-sm"
+                >
+                  Masuk ke Sistem
+                </a>
+                <a
+                  href="#fitur"
+                  class="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-white/80 text-slate-900 font-semibold ring-1 ring-slate-200 hover:bg-white transition-colors"
+                >
+                  Lihat fitur
+                </a>
+              </div>
+
+              <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="rounded-2xl bg-white/70 backdrop-blur border border-slate-200/70 p-4 shadow-sm">
+                  <p class="text-sm font-semibold text-slate-900">Laporan cepat</p>
+                  <p class="text-xs text-slate-600 mt-1">Rekap pemasukan/pengeluaran siap unduh.</p>
+                </div>
+                <div class="rounded-2xl bg-white/70 backdrop-blur border border-slate-200/70 p-4 shadow-sm">
+                  <p class="text-sm font-semibold text-slate-900">Aman & rapi</p>
+                  <p class="text-xs text-slate-600 mt-1">Data tersusun per program dan periode.</p>
+                </div>
+                <div class="rounded-2xl bg-white/70 backdrop-blur border border-slate-200/70 p-4 shadow-sm">
+                  <p class="text-sm font-semibold text-slate-900">Transparan</p>
+                  <p class="text-xs text-slate-600 mt-1">Mendorong akuntabilitas ke jemaat.</p>
+                </div>
+              </div>
             </div>
-            <div class="hero-illustration flex justify-center">
-              <!-- GMIM Logo SVG inline — tidak bergantung pada request eksternal -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 200 200"
-                class="w-48 h-48 md:w-64 md:h-64"
-                role="img"
-                aria-label="Logo Sistem Keuangan GMIM"
-              >
-                <circle cx="100" cy="100" r="90" fill="#1e40af" opacity="0.1" />
-                <circle cx="100" cy="100" r="70" fill="#1e40af" opacity="0.15" />
-                <!-- Cross symbol -->
-                <rect x="88" y="40" width="24" height="120" rx="4" fill="#1e40af" />
-                <rect x="50" y="78" width="100" height="24" rx="4" fill="#1e40af" />
-                <!-- Coin symbol -->
-                <circle cx="100" cy="155" r="18" fill="#f59e0b" />
-                <text x="100" y="161" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">Rp</text>
-              </svg>
+            <div class="hero-illustration flex justify-center md:justify-end">
+              <div class="relative">
+                <div
+                  class="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-blue-200/40 via-indigo-200/20 to-amber-100/30 blur-2xl"
+                  aria-hidden="true"
+                ></div>
+                <div class="relative rounded-[2rem] bg-white/70 backdrop-blur border border-slate-200/70 p-10 shadow-lg">
+                  <!-- GMIM Logo SVG inline — tidak bergantung pada request eksternal -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 200 200"
+                    class="w-52 h-52 md:w-64 md:h-64"
+                    role="img"
+                    aria-label="Logo Sistem Keuangan GMIM"
+                  >
+                    <circle cx="100" cy="100" r="90" fill="#1e40af" opacity="0.1" />
+                    <circle cx="100" cy="100" r="70" fill="#1e40af" opacity="0.15" />
+                    <!-- Cross symbol -->
+                    <rect x="88" y="40" width="24" height="120" rx="4" fill="#1e40af" />
+                    <rect x="50" y="78" width="100" height="24" rx="4" fill="#1e40af" />
+                    <!-- Coin symbol -->
+                    <circle cx="100" cy="155" r="18" fill="#f59e0b" />
+                    <text x="100" y="161" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">Rp</text>
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Feature Section -->
-      <section id="fitur" class="py-20 bg-white">
+      <section id="fitur" class="py-20">
         <div class="max-w-6xl mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Fitur Unggulan</h2>
-          <p class="text-center text-gray-600 mb-12">Semua yang Anda butuhkan untuk mengelola keuangan gereja</p>
+          <h2 class="text-3xl font-extrabold tracking-tight text-center text-slate-900 mb-4">Fitur Unggulan</h2>
+          <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
+            Semua yang Anda butuhkan untuk mengelola keuangan gereja dengan rapi, cepat, dan mudah dipahami.
+          </p>
           <div id="fitur-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Rendered by src/render.js -->
           </div>
@@ -371,9 +499,14 @@
       </section>
 
       <!-- Church List Section -->
-      <section id="jemaat" class="py-20 bg-gray-50">
+      <section id="jemaat" class="py-20 bg-white/30">
         <div class="max-w-6xl mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Jemaat yang Telah Bergabung</h2>
+          <h2 class="text-3xl font-extrabold tracking-tight text-center text-slate-900 mb-4">
+            Jemaat yang Telah Bergabung
+          </h2>
+          <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
+            Daftar jemaat yang sudah memulai pengelolaan keuangan yang lebih transparan dan terstruktur.
+          </p>
           <div id="jemaat-section">
             <!-- Rendered by src/render.js -->
           </div>
@@ -381,7 +514,11 @@
       </section>
 
       <!-- Contact Section -->
-      <section id="kontak" class="py-20 bg-blue-700 text-white text-center">
+      <section id="kontak" class="py-20 bg-blue-700 text-white text-center relative overflow-hidden">
+        <div
+          class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.18),transparent_55%)]"
+          aria-hidden="true"
+        ></div>
         <div class="max-w-2xl mx-auto px-4">
           <h2 class="text-3xl font-bold mb-4">Hubungi Kami</h2>
           <p class="text-blue-100 mb-8">
@@ -391,7 +528,7 @@
             href="https://wa.me/628123456789"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-green-500 rounded-lg hover:bg-green-600 transition-colors font-semibold"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-green-500 rounded-xl hover:bg-green-600 transition-colors font-semibold shadow-sm ring-1 ring-white/15"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -406,6 +543,9 @@
             </svg>
             Hubungi via WhatsApp
           </a>
+          <p class="mt-5 text-xs text-blue-100/90">
+            Jam kerja: Senin–Jumat • 09.00–17.00 WITA (perkiraan)
+          </p>
           <!-- Email kontak (tersembunyi jika tidak tersedia) -->
           <!-- Uncomment dan isi alamat email jika tersedia:
           <p class="mt-4 text-blue-200 text-sm">
@@ -418,7 +558,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 text-center py-6 text-sm">
+    <footer class="bg-slate-950 text-slate-400 text-center py-8 text-sm">
       <p>
         ©
         <span id="year">2024</span>

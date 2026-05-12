@@ -42,10 +42,13 @@ export const features = [
  * @returns {string} HTML string
  */
 export function renderFeatureCard(feature) {
-  return `<div class="p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-  <div class="text-4xl mb-4" aria-hidden="true">${feature.icon}</div>
-  <h3 class="text-lg font-semibold text-gray-800">${escapeHtml(feature.title)}</h3>
-  <p class="text-sm text-gray-600 mt-2">${escapeHtml(feature.description)}</p>
+  return `<div class="group relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+  <div class="absolute -right-12 -top-12 h-28 w-28 rounded-full bg-blue-200/40 blur-2xl" aria-hidden="true"></div>
+  <div class="relative">
+    <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-3xl ring-1 ring-blue-100" aria-hidden="true">${feature.icon}</div>
+    <h3 class="mt-4 text-lg font-semibold text-slate-900">${escapeHtml(feature.title)}</h3>
+    <p class="mt-2 text-sm leading-relaxed text-slate-600">${escapeHtml(feature.description)}</p>
+  </div>
 </div>`
 }
 
@@ -74,13 +77,13 @@ export function renderChurchCard(church) {
           href="${escapeHtml(church.mapsUrl)}"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center text-blue-600 hover:underline text-sm mt-3"
+          class="inline-flex items-center gap-2 text-blue-700 hover:text-blue-800 text-sm mt-4 font-semibold"
         >Lihat Lokasi</a>`
       : ""
 
-  return `<div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-  <h3 class="text-base font-semibold text-gray-800">${escapeHtml(church.name)}</h3>
-  <p class="text-sm text-gray-600 mt-1">${escapeHtml(church.location)}</p>
+  return `<div class="bg-white/70 backdrop-blur p-6 rounded-2xl shadow-sm border border-slate-200/70 hover:shadow-md transition-shadow">
+  <h3 class="text-base font-semibold text-slate-900">${escapeHtml(church.name)}</h3>
+  <p class="text-sm text-slate-600 mt-1">${escapeHtml(church.location)}</p>
   ${mapsLink}
 </div>`
 }
