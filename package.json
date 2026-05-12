@@ -1,0 +1,15 @@
+{
+  "name": "gmim-landingpage",
+  "version": "1.0.0",
+  "description": "Landing page statis untuk Sistem Keuangan GMIM",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "fast-check": "^3.22.0",
+    "jsdom": "^25.0.1",
+    "vitest": "^2.1.8"
+  }
+}
