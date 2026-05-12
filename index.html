@@ -12,46 +12,47 @@
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- Tailwind config (must be defined before CDN script) -->
+    <!-- Tailwind CSS (harus dimuat SEBELUM config) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind config (didefinisikan setelah CDN dimuat) -->
     <script>
-      tailwind = {
-        config: {
-          theme: {
-            extend: {
-              fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto"] },
-              colors: {
-                brand: {
-                  50: "#f0f6ff",
-                  100: "#e0edff",
-                  200: "#cce1ff",
-                  300: "#a3caff",
-                  400: "#75aaff",
-                  500: "#4785ff",
-                  600: "#255deb",
-                  700: "#1d48c8",
-                  800: "#1e3e9f",
-                  900: "#1e367d",
-                  950: "#14224c"
-                },
-                accent: {
-                  500: "#f59e0b",
-                  600: "#d97706"
-                }
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto"] },
+            colors: {
+              brand: {
+                50: "#f0f6ff",
+                100: "#e0edff",
+                200: "#cce1ff",
+                300: "#a3caff",
+                400: "#75aaff",
+                500: "#4785ff",
+                600: "#255deb",
+                700: "#1d48c8",
+                800: "#1e3e9f",
+                900: "#1e367d",
+                950: "#14224c"
               },
-              boxShadow: {
-                soft: "0 20px 40px -15px rgba(0,0,0,0.08)",
-                glow: "0 0 40px -10px rgba(37, 93, 235, 0.30)"
+              accent: {
+                500: "#f59e0b",
+                600: "#d97706"
               }
+            },
+            boxShadow: {
+              soft: "0 20px 40px -15px rgba(0,0,0,0.08)",
+              glow: "0 0 40px -10px rgba(37, 93, 235, 0.30)"
             }
           }
         }
       }
     </script>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
       details > summary {
@@ -129,17 +130,24 @@
             >
               G
             </div>
-            <span class="font-extrabold text-xl tracking-tight text-slate-900"
-              >Keuangan <span class="text-brand-600">GMIM</span></span
-            >
+            <span class="font-extrabold text-xl tracking-tight text-slate-900">
+              Keuangan
+              <span class="text-brand-600">GMIM</span>
+            </span>
           </div>
 
           <nav class="hidden md:flex space-x-8 items-center">
-            <a href="#fitur" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Fitur</a>
+            <a href="#fitur" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">
+              Fitur
+            </a>
             <a href="#alur" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Alur</a>
-            <a href="#jemaat" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Jemaat</a>
+            <a href="#jemaat" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">
+              Jemaat
+            </a>
             <a href="#faq" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">FAQ</a>
-            <a href="#kontak" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Kontak</a>
+            <a href="#kontak" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">
+              Kontak
+            </a>
             <div class="w-px h-6 bg-slate-200 mx-1"></div>
             <a
               href="https://app.gmim-keuangan.id/login"
@@ -164,7 +172,14 @@
               aria-controls="mobile-menu"
             >
               <span class="sr-only">Buka menu utama</span>
-              <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <svg
+                class="block h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
@@ -172,13 +187,41 @@
         </div>
       </div>
 
-      <div class="md:hidden hidden bg-white/95 backdrop-blur-md border-t border-slate-100 absolute w-full shadow-2xl" id="mobile-menu">
+      <div
+        class="md:hidden hidden bg-white/95 backdrop-blur-md border-t border-slate-100 absolute w-full shadow-2xl"
+        id="mobile-menu"
+      >
         <div class="px-4 pt-2 pb-6 space-y-2 sm:px-6">
-          <a href="#fitur" class="block px-3 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-600 hover:bg-brand-50 transition-colors">Fitur</a>
-          <a href="#alur" class="block px-3 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-600 hover:bg-brand-50 transition-colors">Alur Penggunaan</a>
-          <a href="#jemaat" class="block px-3 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-600 hover:bg-brand-50 transition-colors">Daftar Jemaat</a>
-          <a href="#faq" class="block px-3 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-600 hover:bg-brand-50 transition-colors">FAQ</a>
-          <a href="#kontak" class="block px-3 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-600 hover:bg-brand-50 transition-colors">Kontak</a>
+          <a
+            href="#fitur"
+            class="block px-3 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-600 hover:bg-brand-50 transition-colors"
+          >
+            Fitur
+          </a>
+          <a
+            href="#alur"
+            class="block px-3 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-600 hover:bg-brand-50 transition-colors"
+          >
+            Alur Penggunaan
+          </a>
+          <a
+            href="#jemaat"
+            class="block px-3 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-600 hover:bg-brand-50 transition-colors"
+          >
+            Daftar Jemaat
+          </a>
+          <a
+            href="#faq"
+            class="block px-3 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-600 hover:bg-brand-50 transition-colors"
+          >
+            FAQ
+          </a>
+          <a
+            href="#kontak"
+            class="block px-3 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-600 hover:bg-brand-50 transition-colors"
+          >
+            Kontak
+          </a>
           <a
             href="https://app.gmim-keuangan.id/login"
             target="_blank"
@@ -193,32 +236,48 @@
 
     <main class="pt-20">
       <section id="hero" class="relative bg-gradient-to-b from-white via-brand-50/40 to-slate-50 overflow-hidden">
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-100/50 blur-3xl opacity-60 pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-blue-100/50 blur-3xl opacity-60 pointer-events-none"></div>
+        <div
+          class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-100/50 blur-3xl opacity-60 pointer-events-none"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-blue-100/50 blur-3xl opacity-60 pointer-events-none"
+        ></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 lg:pt-32 lg:pb-28 flex flex-col lg:flex-row items-center gap-12 lg:gap-10 relative z-10">
+        <div
+          class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 lg:pt-32 lg:pb-28 flex flex-col lg:flex-row items-center gap-12 lg:gap-10 relative z-10"
+        >
           <div class="w-full lg:w-1/2 text-center lg:text-left reveal">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 border border-brand-100/80 text-brand-700 text-sm font-extrabold mb-8 shadow-sm">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 border border-brand-100/80 text-brand-700 text-sm font-extrabold mb-8 shadow-sm"
+            >
               <span class="relative flex h-2.5 w-2.5" aria-hidden="true">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"
+                ></span>
                 <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-600"></span>
               </span>
               Sistem Terpusat & Terintegrasi
             </div>
 
-            <h1 class="text-4xl tracking-tight font-extrabold text-slate-900 sm:text-5xl md:text-6xl mb-6 leading-[1.12]">
+            <h1
+              class="text-4xl tracking-tight font-extrabold text-slate-900 sm:text-5xl md:text-6xl mb-6 leading-[1.12]"
+            >
               Kelola Keuangan
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-800">Lebih Transparan</span>
+              <span class="text-brand-700">Lebih Transparan</span>
             </h1>
 
-            <p class="mt-4 text-base text-slate-600 sm:text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed">
-              Sistem Keuangan GMIM membantu pengurus jemaat mencatat kas dengan presisi, menghasilkan laporan otomatis yang rapi, dan meningkatkan kepercayaan melalui akuntabilitas data.
+            <p
+              class="mt-4 text-base text-slate-600 sm:text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed"
+            >
+              Sistem Keuangan GMIM membantu pengurus jemaat mencatat kas dengan presisi, menghasilkan laporan otomatis
+              yang rapi, dan meningkatkan kepercayaan melalui akuntabilitas data.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
                 href="https://app.gmim-keuangan.id/login"
                 class="inline-flex justify-center items-center gap-2 px-8 py-4 text-base font-extrabold rounded-xl text-white bg-brand-600 hover:bg-brand-700 shadow-xl shadow-brand-500/20 transition-all hover:-translate-y-1"
+                style="background-color: #255deb; color: #ffffff"
               >
                 Masuk ke Sistem
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -228,12 +287,15 @@
               <a
                 href="#fitur"
                 class="inline-flex justify-center items-center px-8 py-4 border-2 border-slate-200 text-base font-extrabold rounded-xl text-slate-700 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all"
+                style="border-color: #cbd5e1; color: #334155; background-color: #ffffff"
               >
                 Pelajari Fitur
               </a>
             </div>
 
-            <div class="mt-10 flex items-center justify-center lg:justify-start gap-3 text-sm text-slate-500 font-medium">
+            <div
+              class="mt-10 flex items-center justify-center lg:justify-start gap-3 text-sm text-slate-500 font-medium"
+            >
               <span class="inline-flex items-center gap-2 rounded-full bg-slate-50 border border-slate-200 px-3 py-2">
                 <span class="h-2.5 w-2.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
                 Dipakai oleh jemaat yang terus bertambah
@@ -242,11 +304,21 @@
           </div>
 
           <div class="w-full lg:w-1/2 relative reveal delay-200">
-            <div class="absolute inset-0 bg-gradient-to-tr from-brand-200 to-brand-50 transform translate-x-4 translate-y-4 rounded-[2rem] -z-10"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-tr from-brand-200 to-brand-50 transform translate-x-4 translate-y-4 rounded-[2rem] -z-10"
+            ></div>
 
-            <div class="relative rounded-[2rem] bg-slate-100 border-4 border-white shadow-soft shadow-glow overflow-hidden aspect-[4/3] flex items-center justify-center">
+            <div
+              class="relative rounded-[2rem] bg-slate-100 border-4 border-white shadow-soft shadow-glow overflow-hidden aspect-[4/3] flex items-center justify-center"
+            >
               <!-- Inline illustration (no external images) -->
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" class="w-full h-full" role="img" aria-label="Ilustrasi gereja dan dashboard keuangan">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 900 650"
+                class="w-full h-full"
+                role="img"
+                aria-label="Ilustrasi gereja dan dashboard keuangan"
+              >
                 <defs>
                   <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
                     <stop offset="0" stop-color="#e0edff" />
@@ -271,7 +343,17 @@
                   <rect x="410" y="155" width="210" height="14" rx="7" fill="#e2e8f0" />
                   <rect x="410" y="180" width="165" height="14" rx="7" fill="#e2e8f0" />
                   <rect x="650" y="155" width="130" height="38" rx="14" fill="url(#brand)" />
-                  <text x="715" y="180" text-anchor="middle" font-family="Inter, system-ui" font-size="14" font-weight="800" fill="#fff">Laporan</text>
+                  <text
+                    x="715"
+                    y="180"
+                    text-anchor="middle"
+                    font-family="Inter, system-ui"
+                    font-size="14"
+                    font-weight="800"
+                    fill="#fff"
+                  >
+                    Laporan
+                  </text>
 
                   <rect x="410" y="230" width="370" height="90" rx="22" fill="#f8fafc" />
                   <rect x="430" y="250" width="150" height="12" rx="6" fill="#cbd5e1" />
@@ -305,8 +387,13 @@
               </svg>
             </div>
 
-            <div class="absolute -bottom-6 -left-4 md:-left-8 bg-white/95 backdrop-blur px-5 py-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4">
-              <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600" aria-hidden="true">
+            <div
+              class="absolute -bottom-6 -left-4 md:-left-8 bg-white/95 backdrop-blur px-5 py-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4"
+            >
+              <div
+                class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600"
+                aria-hidden="true"
+              >
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
@@ -321,14 +408,24 @@
       </section>
 
       <section class="bg-brand-950 text-white py-12 relative">
-        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 24px 24px;"></div>
+        <div
+          class="absolute inset-0 opacity-10"
+          style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 24px 24px"
+        ></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative reveal">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-brand-800/50">
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-brand-800/50"
+          >
             <div class="p-4 px-6">
               <div class="text-brand-300 mb-4 flex justify-center" aria-hidden="true">
                 <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
                 </svg>
               </div>
               <h3 class="text-lg font-extrabold text-white mb-2">Sesuai Standar</h3>
@@ -337,7 +434,12 @@
             <div class="p-4 px-6">
               <div class="text-brand-300 mb-4 flex justify-center" aria-hidden="true">
                 <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"
+                  />
                 </svg>
               </div>
               <h3 class="text-lg font-extrabold text-white mb-2">Akses Terkontrol</h3>
@@ -346,7 +448,12 @@
             <div class="p-4 px-6">
               <div class="text-brand-300 mb-4 flex justify-center" aria-hidden="true">
                 <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
                 </svg>
               </div>
               <h3 class="text-lg font-extrabold text-white mb-2">Mudah Digunakan</h3>
@@ -359,8 +466,14 @@
       <section id="fitur" class="py-24 bg-gradient-to-b from-slate-50 to-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-            <span class="text-sm font-extrabold tracking-wider text-brand-600 uppercase bg-brand-100 px-3 py-1 rounded-full">Kemudahan Sistem</span>
-            <h2 class="mt-6 text-3xl leading-tight font-extrabold text-slate-900 sm:text-4xl">Segala fitur yang Anda butuhkan</h2>
+            <span
+              class="text-sm font-extrabold tracking-wider text-brand-600 uppercase bg-brand-100 px-3 py-1 rounded-full"
+            >
+              Kemudahan Sistem
+            </span>
+            <h2 class="mt-6 text-3xl leading-tight font-extrabold text-slate-900 sm:text-4xl">
+              Segala fitur yang Anda butuhkan
+            </h2>
             <p class="mt-4 max-w-2xl text-lg text-slate-600 mx-auto">
               Dirancang untuk menyederhanakan tugas bendahara dan tim tata usaha jemaat.
             </p>
@@ -372,7 +485,10 @@
         </div>
       </section>
 
-      <section id="alur" class="py-24 bg-gradient-to-b from-white to-slate-50 border-t border-slate-100 overflow-hidden">
+      <section
+        id="alur"
+        class="py-24 bg-gradient-to-b from-white to-slate-50 border-t border-slate-100 overflow-hidden"
+      >
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-20 reveal">
             <h2 class="text-3xl font-extrabold text-slate-900">Alur Penggunaan yang Simpel</h2>
@@ -381,13 +497,19 @@
 
           <div class="relative max-w-5xl mx-auto">
             <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-1 bg-slate-100 rounded-full">
-              <div class="absolute top-0 left-0 h-full bg-gradient-to-r from-brand-300 to-brand-600 w-full opacity-50"></div>
+              <div
+                class="absolute top-0 left-0 h-full bg-gradient-to-r from-brand-300 to-brand-600 w-full opacity-50"
+              ></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
               <div class="flex flex-col items-center text-center reveal delay-100">
-                <div class="w-24 h-24 bg-white border-4 border-slate-100 rounded-full flex items-center justify-center shadow-soft mb-6 relative group hover:border-brand-300 transition-colors">
-                  <span class="text-3xl font-extrabold text-slate-300 group-hover:text-brand-600 transition-colors">1</span>
+                <div
+                  class="w-24 h-24 bg-white border-4 border-slate-100 rounded-full flex items-center justify-center shadow-soft mb-6 relative group hover:border-brand-300 transition-colors"
+                >
+                  <span class="text-3xl font-extrabold text-slate-300 group-hover:text-brand-600 transition-colors">
+                    1
+                  </span>
                 </div>
                 <h3 class="text-xl font-extrabold text-slate-900 mb-3">Input Data</h3>
                 <p class="text-slate-600 leading-relaxed text-sm">
@@ -395,18 +517,28 @@
                 </p>
               </div>
               <div class="flex flex-col items-center text-center reveal delay-200">
-                <div class="w-24 h-24 bg-white border-4 border-slate-100 rounded-full flex items-center justify-center shadow-soft mb-6 relative group hover:border-brand-400 transition-colors">
-                  <span class="text-3xl font-extrabold text-slate-300 group-hover:text-brand-600 transition-colors">2</span>
+                <div
+                  class="w-24 h-24 bg-white border-4 border-slate-100 rounded-full flex items-center justify-center shadow-soft mb-6 relative group hover:border-brand-400 transition-colors"
+                >
+                  <span class="text-3xl font-extrabold text-slate-300 group-hover:text-brand-600 transition-colors">
+                    2
+                  </span>
                 </div>
                 <h3 class="text-xl font-extrabold text-slate-900 mb-3">Validasi & Rekap</h3>
-                <p class="text-slate-600 leading-relaxed text-sm">Data direkap otomatis dan mudah dicek ulang sesuai alur kerja.</p>
+                <p class="text-slate-600 leading-relaxed text-sm">
+                  Data direkap otomatis dan mudah dicek ulang sesuai alur kerja.
+                </p>
               </div>
               <div class="flex flex-col items-center text-center reveal delay-300">
-                <div class="w-24 h-24 bg-brand-600 border-4 border-brand-200 rounded-full flex items-center justify-center shadow-glow mb-6 relative transform hover:scale-105 transition-transform">
+                <div
+                  class="w-24 h-24 bg-brand-600 border-4 border-brand-200 rounded-full flex items-center justify-center shadow-glow mb-6 relative transform hover:scale-105 transition-transform"
+                >
                   <span class="text-3xl font-extrabold text-white">3</span>
                 </div>
                 <h3 class="text-xl font-extrabold text-slate-900 mb-3">Cetak Laporan</h3>
-                <p class="text-slate-600 leading-relaxed text-sm">Buat laporan siap cetak kapan saja untuk rapat dan arsip.</p>
+                <p class="text-slate-600 leading-relaxed text-sm">
+                  Buat laporan siap cetak kapan saja untuk rapat dan arsip.
+                </p>
               </div>
             </div>
           </div>
@@ -435,14 +567,23 @@
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16 reveal">
             <h2 class="text-3xl font-extrabold text-slate-900">Pertanyaan Umum (FAQ)</h2>
-            <p class="mt-4 text-lg text-slate-600">Jawaban untuk beberapa pertanyaan yang sering diajukan seputar sistem.</p>
+            <p class="mt-4 text-lg text-slate-600">
+              Jawaban untuk beberapa pertanyaan yang sering diajukan seputar sistem.
+            </p>
           </div>
 
           <div class="space-y-4 reveal delay-100">
-            <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-brand-300 transition-colors">
-              <summary class="flex items-center justify-between p-6 cursor-pointer font-extrabold text-slate-900 bg-slate-50/50 hover:bg-slate-50 transition-colors">
+            <details
+              class="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-brand-300 transition-colors"
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer font-extrabold text-slate-900 bg-slate-50/50 hover:bg-slate-50 transition-colors"
+              >
                 Bagaimana cara mendaftarkan jemaat?
-                <span class="transition-transform duration-300 group-open:-rotate-180 text-brand-600 flex-shrink-0 ml-4" aria-hidden="true">
+                <span
+                  class="transition-transform duration-300 group-open:-rotate-180 text-brand-600 flex-shrink-0 ml-4"
+                  aria-hidden="true"
+                >
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                   </svg>
@@ -453,10 +594,17 @@
               </div>
             </details>
 
-            <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-brand-300 transition-colors">
-              <summary class="flex items-center justify-between p-6 cursor-pointer font-extrabold text-slate-900 bg-slate-50/50 hover:bg-slate-50 transition-colors">
+            <details
+              class="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-brand-300 transition-colors"
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer font-extrabold text-slate-900 bg-slate-50/50 hover:bg-slate-50 transition-colors"
+              >
                 Apakah jemaat bisa melihat laporan?
-                <span class="transition-transform duration-300 group-open:-rotate-180 text-brand-600 flex-shrink-0 ml-4" aria-hidden="true">
+                <span
+                  class="transition-transform duration-300 group-open:-rotate-180 text-brand-600 flex-shrink-0 ml-4"
+                  aria-hidden="true"
+                >
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                   </svg>
@@ -467,10 +615,17 @@
               </div>
             </details>
 
-            <details class="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-brand-300 transition-colors">
-              <summary class="flex items-center justify-between p-6 cursor-pointer font-extrabold text-slate-900 bg-slate-50/50 hover:bg-slate-50 transition-colors">
+            <details
+              class="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-brand-300 transition-colors"
+            >
+              <summary
+                class="flex items-center justify-between p-6 cursor-pointer font-extrabold text-slate-900 bg-slate-50/50 hover:bg-slate-50 transition-colors"
+              >
                 Apakah bisa ekspor laporan?
-                <span class="transition-transform duration-300 group-open:-rotate-180 text-brand-600 flex-shrink-0 ml-4" aria-hidden="true">
+                <span
+                  class="transition-transform duration-300 group-open:-rotate-180 text-brand-600 flex-shrink-0 ml-4"
+                  aria-hidden="true"
+                >
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                   </svg>
@@ -487,15 +642,20 @@
       <section id="kontak" class="py-20 relative overflow-hidden">
         <div class="absolute inset-0 bg-brand-900"></div>
         <div class="absolute inset-0 bg-gradient-to-br from-brand-800 to-brand-950 opacity-95"></div>
-        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
+        <div
+          class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1.5px,transparent_1.5px)] [background-size:24px_24px]"
+        ></div>
 
         <div class="absolute top-0 left-1/4 w-64 h-64 bg-brand-500 rounded-full blur-[100px] opacity-40"></div>
         <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-accent-500 rounded-full blur-[100px] opacity-20"></div>
 
         <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-          <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6 tracking-tight">Siap Beralih ke Sistem Digital?</h2>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6 tracking-tight">
+            Siap Beralih ke Sistem Digital?
+          </h2>
           <p class="text-brand-100 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-            Tingkatkan efisiensi, akurasi, dan transparansi tata kelola keuangan jemaat Anda sekarang. Hubungi kami untuk proses aktivasi.
+            Tingkatkan efisiensi, akurasi, dan transparansi tata kelola keuangan jemaat Anda sekarang. Hubungi kami
+            untuk proses aktivasi.
           </p>
           <a
             href="https://wa.me/628123456789"
@@ -524,44 +684,95 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
           <div class="md:col-span-5">
             <div class="flex items-center gap-3 mb-6">
-              <div class="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center text-white font-extrabold text-xl" aria-hidden="true">G</div>
+              <div
+                class="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center text-white font-extrabold text-xl"
+                aria-hidden="true"
+              >
+                G
+              </div>
               <span class="font-extrabold text-2xl text-white">Sistem Keuangan</span>
             </div>
             <p class="text-slate-400 max-w-sm mb-6 leading-relaxed">
-              Mendukung pelayanan jemaat GMIM melalui digitalisasi pencatatan dan pelaporan keuangan yang transparan, rapi, dan berstandar.
+              Mendukung pelayanan jemaat GMIM melalui digitalisasi pencatatan dan pelaporan keuangan yang transparan,
+              rapi, dan berstandar.
             </p>
           </div>
           <div class="md:col-span-3 md:col-start-7">
             <h3 class="text-sm font-extrabold text-white tracking-widest uppercase mb-6">Navigasi</h3>
             <ul class="space-y-3">
-              <li><a href="#fitur" class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all">Fitur Utama</a></li>
-              <li><a href="#alur" class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all">Alur Penggunaan</a></li>
-              <li><a href="#jemaat" class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all">Daftar Jemaat</a></li>
-              <li><a href="#faq" class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all">FAQ</a></li>
-              <li><a href="#kontak" class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all">Kontak</a></li>
+              <li>
+                <a
+                  href="#fitur"
+                  class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all"
+                >
+                  Fitur Utama
+                </a>
+              </li>
+              <li>
+                <a href="#alur" class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all">
+                  Alur Penggunaan
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#jemaat"
+                  class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all"
+                >
+                  Daftar Jemaat
+                </a>
+              </li>
+              <li>
+                <a href="#faq" class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all">
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#kontak"
+                  class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all"
+                >
+                  Kontak
+                </a>
+              </li>
             </ul>
           </div>
           <div class="md:col-span-3">
             <h3 class="text-sm font-extrabold text-white tracking-widest uppercase mb-6">Akses</h3>
             <ul class="space-y-3">
               <li>
-                <a href="https://app.gmim-keuangan.id/login" target="_blank" rel="noopener noreferrer" class="text-brand-300 hover:text-brand-200 font-semibold hover:translate-x-1 inline-block transition-all"
-                  >Masuk Aplikasi →</a
+                <a
+                  href="https://app.gmim-keuangan.id/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-brand-300 hover:text-brand-200 font-semibold hover:translate-x-1 inline-block transition-all"
                 >
+                  Masuk Aplikasi →
+                </a>
               </li>
               <li>
-                <a href="https://wa.me/628123456789" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all"
-                  >Daftar Jemaat Baru</a
+                <a
+                  href="https://wa.me/628123456789"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all"
                 >
+                  Daftar Jemaat Baru
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
         <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="text-sm text-slate-500">© <span id="year">2024</span> Sistem Keuangan GMIM. All rights reserved.</p>
+          <p class="text-sm text-slate-500">
+            ©
+            <span id="year">2024</span>
+            Sistem Keuangan GMIM. All rights reserved.
+          </p>
           <div class="flex items-center gap-2">
-            <span class="text-sm font-semibold text-slate-400 bg-slate-800 px-3 py-1 rounded-full">Soli Deo Gloria</span>
+            <span class="text-sm font-semibold text-slate-400 bg-slate-800 px-3 py-1 rounded-full">
+              Soli Deo Gloria
+            </span>
           </div>
         </div>
       </div>
@@ -613,7 +824,11 @@
 
       // Church data (edit here)
       const churches = [
-        { name: "Jemaat EBEN HAEZER TUMPAAN I", location: "Tumpaan, Minahasa Selatan", mapsUrl: "https://maps.app.goo.gl/S1b8cguCRnvQyrLZA" }
+        {
+          name: "Jemaat EBEN HAEZER TUMPAAN I",
+          location: "Tumpaan, Minahasa Selatan",
+          mapsUrl: "https://maps.app.goo.gl/S1b8cguCRnvQyrLZA"
+        }
       ]
       const jemaatSection = document.getElementById("jemaat-section")
       if (jemaatSection) jemaatSection.innerHTML = renderChurchSection(churches)
