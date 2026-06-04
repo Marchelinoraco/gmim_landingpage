@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../gmim_manage"
+		},
+		{
+			"path": "../gmim_admin"
+		}
+	],
+	"settings": {}
+}

@@ -12,6 +12,8 @@ import {
   renderChurchSection,
   renderFeatureCard,
   renderFeatureSection,
+  renderSubscriptionPlanCard,
+  renderSubscriptionSection,
   renderFullPage,
   escapeHtml,
   features
@@ -147,12 +149,12 @@ describe("renderFeatureCard", () => {
 // Unit Tests: renderFeatureSection
 // ---------------------------------------------------------------------------
 describe("renderFeatureSection", () => {
-  it("merender semua 4 fitur default", () => {
+  it("merender fitur default", () => {
     const html = renderFeatureSection()
-    expect(html).toContain("Pencatatan Keuangan")
-    expect(html).toContain("Laporan Keuangan")
-    expect(html).toContain("Transparansi Jemaat")
-    expect(html).toContain("Anggaran Program")
+    expect(html).toContain("Pemasukan &amp; Pengeluaran")
+    expect(html).toContain("Rekap Mingguan &amp; Bulanan")
+    expect(html).toContain("Role Pengguna")
+    expect(html).toContain("Admin SaaS")
   })
 
   it("merender array fitur kustom", () => {
@@ -160,6 +162,31 @@ describe("renderFeatureSection", () => {
     const html = renderFeatureSection(customFeatures)
     expect(html).toContain("Fitur Kustom")
     expect(html).not.toContain("Pencatatan Keuangan")
+  })
+})
+
+// ---------------------------------------------------------------------------
+// Unit Tests: Subscription Plans
+// ---------------------------------------------------------------------------
+describe("renderSubscriptionSection", () => {
+  it("merender paket langganan default", () => {
+    const html = renderSubscriptionSection()
+    expect(html).toContain("Basic")
+    expect(html).toContain("Standard")
+    expect(html).toContain("Premium")
+    expect(html).toContain("Paling Direkomendasikan")
+  })
+
+  it("merender kartu paket dengan fitur", () => {
+    const html = renderSubscriptionPlanCard({
+      name: "Trial",
+      price: "Rp 0",
+      description: "Coba sistem.",
+      features: ["1 gereja", "1 bendahara"]
+    })
+    expect(html).toContain("Trial")
+    expect(html).toContain("Rp 0")
+    expect(html).toContain("1 bendahara")
   })
 })
 
@@ -173,6 +200,7 @@ describe("renderFullPage", () => {
 
     expect(doc.getElementById("hero")).not.toBeNull()
     expect(doc.getElementById("fitur")).not.toBeNull()
+    expect(doc.getElementById("paket")).not.toBeNull()
     expect(doc.getElementById("jemaat")).not.toBeNull()
     expect(doc.getElementById("kontak")).not.toBeNull()
   })
@@ -191,6 +219,7 @@ describe("renderFullPage", () => {
     const hrefs = navLinks.map((a) => a.getAttribute("href"))
     expect(hrefs).toContain("#hero")
     expect(hrefs).toContain("#fitur")
+    expect(hrefs).toContain("#paket")
     expect(hrefs).toContain("#jemaat")
     expect(hrefs).toContain("#kontak")
   })

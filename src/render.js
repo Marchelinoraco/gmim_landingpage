@@ -12,23 +12,68 @@
 export const features = [
   {
     icon: "📊",
-    title: "Pencatatan Keuangan",
-    description: "Catat pemasukan dan pengeluaran gereja secara terstruktur dan akurat."
+    title: "Pemasukan & Pengeluaran",
+    description: "Catat persembahan, kategori pemasukan, pengeluaran, dan saldo gereja secara terstruktur."
   },
   {
     icon: "📄",
-    title: "Laporan Keuangan",
-    description: "Buat dan unduh laporan keuangan siap cetak kapan saja."
+    title: "Rekap Mingguan & Bulanan",
+    description: "Buat laporan periode mingguan atau bulanan untuk rapat, arsip, dan pertanggungjawaban."
   },
   {
-    icon: "👁️",
-    title: "Transparansi Jemaat",
-    description: "Jemaat dapat memantau kondisi keuangan gereja secara terbuka."
+    icon: "👥",
+    title: "Role Pengguna",
+    description: "Bendahara mengakses semua menu, sementara pelayan khusus hanya menginput pemasukan."
   },
   {
-    icon: "📅",
-    title: "Anggaran Program",
-    description: "Kelola anggaran per program dan kegiatan gereja dengan mudah."
+    icon: "🏛️",
+    title: "Multi Gereja",
+    description: "Setiap jemaat memiliki data, akun, dan subdomain sendiri dalam satu sistem SaaS."
+  },
+  {
+    icon: "📈",
+    title: "Dashboard Keuangan",
+    description: "Pantau saldo, total pemasukan, total pengeluaran, dan transaksi terbaru dari satu halaman."
+  },
+  {
+    icon: "🔐",
+    title: "Admin SaaS",
+    description: "Developer/admin mengatur jemaat berlangganan, domain, paket, dan akun bendahara."
+  }
+]
+
+/** @type {Array<{name: string, price: string, description: string, highlight?: boolean, features: string[]}>} */
+export const subscriptionPlans = [
+  {
+    name: "Basic",
+    price: "Rp 99.000",
+    description: "Untuk jemaat yang mulai beralih dari pencatatan manual.",
+    features: ["1 akun bendahara", "Pencatatan pemasukan dan pengeluaran", "Kategori transaksi", "Rekap bulanan"]
+  },
+  {
+    name: "Standard",
+    price: "Rp 179.000",
+    description: "Untuk jemaat yang membutuhkan alur kerja bendahara dan pelayan khusus.",
+    highlight: true,
+    features: [
+      "Semua fitur Basic",
+      "Akun pelayan khusus",
+      "Dashboard keuangan",
+      "Rekap mingguan dan bulanan",
+      "Dukungan aktivasi subdomain"
+    ]
+  },
+  {
+    name: "Premium",
+    price: "Rp 299.000",
+    description: "Untuk jemaat yang membutuhkan pengelolaan lebih lengkap dan prioritas dukungan.",
+    features: [
+      "Semua fitur Standard",
+      "Jumlah akun lebih fleksibel",
+      "Prioritas dukungan teknis",
+      "Pendampingan setup awal",
+      "Laporan siap cetak"
+    ]
   }
 ]
 
@@ -59,6 +104,53 @@ export function renderFeatureCard(feature) {
  */
 export function renderFeatureSection(featureList = features) {
   return featureList.map(renderFeatureCard).join("\n")
+}
+
+// ---------------------------------------------------------------------------
+// Subscription Plan Section
+// ---------------------------------------------------------------------------
+
+/**
+ * Render satu kartu paket langganan.
+ * @param {{name: string, price: string, description: string, highlight?: boolean, features: string[]}} plan
+ * @returns {string} HTML string
+ */
+export function renderSubscriptionPlanCard(plan) {
+  const featuredClass = plan.highlight
+    ? "border-brand-500 ring-2 ring-brand-100 shadow-xl scale-[1.01]"
+    : "border-slate-200 shadow-sm"
+  const badge = plan.highlight
+    ? `<span class="absolute right-5 top-5 rounded-full bg-brand-600 px-3 py-1 text-xs font-extrabold text-white">Paling Direkomendasikan</span>`
+    : ""
+  const items = plan.features
+    .map(
+      (item) => `<li class="flex gap-3 text-sm text-slate-600">
+  <span class="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">✓</span>
+  <span>${escapeHtml(item)}</span>
+</li>`
+    )
+    .join("\n")
+
+  return `<div class="relative rounded-3xl border ${featuredClass} bg-white p-7">
+  ${badge}
+  <h3 class="text-xl font-extrabold text-slate-900">${escapeHtml(plan.name)}</h3>
+  <p class="mt-3 text-sm leading-relaxed text-slate-600">${escapeHtml(plan.description)}</p>
+  <div class="mt-6 flex items-end gap-1">
+    <span class="text-3xl font-extrabold text-slate-900">${escapeHtml(plan.price)}</span>
+    <span class="pb-1 text-sm font-semibold text-slate-500">/bulan</span>
+  </div>
+  <ul class="mt-7 space-y-3">${items}</ul>
+  <a href="#kontak" class="mt-8 inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-5 py-3 text-sm font-extrabold text-white hover:bg-brand-700">Pilih Paket</a>
+</div>`
+}
+
+/**
+ * Render semua paket langganan.
+ * @param {Array<{name: string, price: string, description: string, highlight?: boolean, features: string[]}>} [plans]
+ * @returns {string} HTML string
+ */
+export function renderSubscriptionSection(plans = subscriptionPlans) {
+  return plans.map(renderSubscriptionPlanCard).join("\n")
 }
 
 // ---------------------------------------------------------------------------
@@ -140,6 +232,7 @@ export function renderFullPage(options = {}) {
     <ul>
       <li><a href="#hero">Beranda</a></li>
       <li><a href="#fitur">Fitur</a></li>
+      <li><a href="#paket">Paket</a></li>
       <li><a href="#jemaat">Jemaat</a></li>
       <li><a href="#kontak">Kontak</a></li>
     </ul>
@@ -153,6 +246,7 @@ export function renderFullPage(options = {}) {
       <ul>
         <li><a href="#hero">Beranda</a></li>
         <li><a href="#fitur">Fitur</a></li>
+        <li><a href="#paket">Paket</a></li>
         <li><a href="#jemaat">Jemaat</a></li>
         <li><a href="#kontak">Kontak</a></li>
       </ul>
@@ -196,6 +290,10 @@ export function renderFullPage(options = {}) {
     <section id="fitur">
       <h2>Fitur Unggulan</h2>
       <div id="fitur-grid">${renderFeatureSection(featureList)}</div>
+    </section>
+    <section id="paket">
+      <h2>Paket Langganan</h2>
+      <div id="paket-grid">${renderSubscriptionSection()}</div>
     </section>
     <section id="jemaat">
       <h2>Jemaat yang Telah Bergabung</h2>

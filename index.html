@@ -140,6 +140,9 @@
             <a href="#fitur" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">
               Fitur
             </a>
+            <a href="#paket" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">
+              Paket
+            </a>
             <a href="#alur" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">Alur</a>
             <a href="#jemaat" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors">
               Jemaat
@@ -203,6 +206,12 @@
             class="block px-3 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-600 hover:bg-brand-50 transition-colors"
           >
             Alur Penggunaan
+          </a>
+          <a
+            href="#paket"
+            class="block px-3 py-3 rounded-lg text-base font-semibold text-slate-700 hover:text-brand-600 hover:bg-brand-50 transition-colors"
+          >
+            Paket Langganan
           </a>
           <a
             href="#jemaat"
@@ -485,6 +494,32 @@
         </div>
       </section>
 
+      <section id="paket" class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <span
+              class="text-sm font-extrabold tracking-wider text-brand-600 uppercase bg-brand-100 px-3 py-1 rounded-full"
+            >
+              Paket Berlangganan
+            </span>
+            <h2 class="mt-6 text-3xl leading-tight font-extrabold text-slate-900 sm:text-4xl">
+              Pilih paket sesuai kebutuhan jemaat
+            </h2>
+            <p class="mt-4 max-w-2xl text-lg text-slate-600 mx-auto">
+              Mulai dari pencatatan dasar sampai pengelolaan multi pengguna untuk bendahara dan pelayan khusus.
+            </p>
+          </div>
+
+          <div id="paket-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            <!-- Rendered by src/render.js -->
+          </div>
+
+          <p class="mt-8 text-center text-sm text-slate-500">
+            Harga dapat disesuaikan untuk kebutuhan implementasi, pendampingan, atau kebijakan pelayanan jemaat.
+          </p>
+        </div>
+      </section>
+
       <section
         id="alur"
         class="py-24 bg-gradient-to-b from-white to-slate-50 border-t border-slate-100 overflow-hidden"
@@ -715,6 +750,14 @@
               </li>
               <li>
                 <a
+                  href="#paket"
+                  class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all"
+                >
+                  Paket Langganan
+                </a>
+              </li>
+              <li>
+                <a
                   href="#jemaat"
                   class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all"
                 >
@@ -779,7 +822,7 @@
     </footer>
 
     <script type="module">
-      import { renderFeatureSection, renderChurchSection } from "./src/render.js"
+      import { renderFeatureSection, renderChurchSection, renderSubscriptionSection } from "./src/render.js"
 
       // Mobile menu toggle (keep ids for tests)
       const btn = document.getElementById("hamburger-btn")
@@ -821,6 +864,10 @@
       // Render features
       const fiturGrid = document.getElementById("fitur-grid")
       if (fiturGrid) fiturGrid.innerHTML = renderFeatureSection()
+
+      // Render subscription plans
+      const paketGrid = document.getElementById("paket-grid")
+      if (paketGrid) paketGrid.innerHTML = renderSubscriptionSection()
 
       // Church data (edit here)
       const churches = [
