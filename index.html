@@ -153,15 +153,16 @@
             </a>
             <div class="w-px h-6 bg-slate-200 mx-1"></div>
             <a
-              href="https://app.gmim-keuangan.id/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-extrabold rounded-xl text-white bg-brand-600 hover:bg-brand-700 shadow-md shadow-brand-500/20 hover:shadow-lg hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500"
+              href="/login"
+              class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors"
             >
               Masuk
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
+            </a>
+            <a
+              href="/daftar"
+              class="inline-flex items-center justify-center px-6 py-2.5 text-sm font-extrabold rounded-xl text-white bg-brand-600 hover:bg-brand-700 shadow-md shadow-brand-500/20 hover:shadow-lg hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500"
+            >
+              Daftar Gratis
             </a>
           </nav>
 
@@ -231,14 +232,26 @@
           >
             Kontak
           </a>
-          <a
-            href="https://app.gmim-keuangan.id/login"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block mt-6 w-full text-center px-4 py-3.5 text-base font-extrabold rounded-xl text-white bg-brand-600 hover:bg-brand-700 shadow-md"
-          >
-            Masuk ke Sistem
-          </a>
+          <div class="mt-6 flex flex-col gap-3">
+            <a
+              href="/daftar"
+              class="block w-full text-center px-4 py-3.5 text-base font-extrabold rounded-xl text-white bg-brand-600 hover:bg-brand-700 shadow-md"
+            >
+              Daftar Gratis — Trial 14 Hari
+            </a>
+            <a
+              href="/demo"
+              class="block w-full text-center px-4 py-3 text-base font-semibold rounded-xl text-brand-600 border-2 border-brand-200 hover:bg-brand-50"
+            >
+              Coba Demo
+            </a>
+            <a
+              href="/login"
+              class="block text-center text-sm font-semibold text-slate-500 hover:text-brand-600 transition-colors py-2"
+            >
+              Sudah punya akun? Masuk
+            </a>
+          </div>
         </div>
       </div>
     </header>
@@ -284,23 +297,32 @@
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
-                href="https://app.gmim-keuangan.id/login"
+                href="/daftar"
                 class="inline-flex justify-center items-center gap-2 px-8 py-4 text-base font-extrabold rounded-xl text-white bg-brand-600 hover:bg-brand-700 shadow-xl shadow-brand-500/20 transition-all hover:-translate-y-1"
                 style="background-color: #255deb; color: #ffffff"
               >
-                Masuk ke Sistem
+                Daftar Gratis
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
               </a>
               <a
-                href="#fitur"
-                class="inline-flex justify-center items-center px-8 py-4 border-2 border-slate-200 text-base font-extrabold rounded-xl text-slate-700 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all"
+                href="/demo"
+                class="inline-flex justify-center items-center gap-2 px-8 py-4 border-2 border-slate-200 text-base font-extrabold rounded-xl text-slate-700 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all"
                 style="border-color: #cbd5e1; color: #334155; background-color: #ffffff"
               >
-                Pelajari Fitur
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                Coba Demo
               </a>
             </div>
+            <p class="mt-5 text-sm text-slate-400">
+              Sudah punya akun?
+              <a href="/login" class="font-semibold text-brand-600 hover:underline">Masuk di sini</a>
+              · Trial 14 hari gratis, tanpa kartu kredit.
+            </p>
 
             <div
               class="mt-10 flex items-center justify-center lg:justify-start gap-3 text-sm text-slate-500 font-medium"
@@ -625,7 +647,7 @@
                 </span>
               </summary>
               <div class="p-6 pt-0 text-slate-600 leading-relaxed bg-white border-t border-slate-100 mt-1">
-                Klik tombol WhatsApp di bawah, admin akan membantu proses aktivasi dan penyiapan akun pengurus.
+                Klik <a href="/daftar" class="font-semibold text-brand-600 hover:underline">Daftar Gratis</a> — isi nama gereja, alamat unik (slug), dan akun bendahara. Proses selesai dalam 1 menit dan langsung mendapat trial 14 hari penuh. Atau hubungi admin via WhatsApp untuk pendampingan.
               </div>
             </details>
 
@@ -784,22 +806,26 @@
             <ul class="space-y-3">
               <li>
                 <a
-                  href="https://app.gmim-keuangan.id/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/daftar"
                   class="text-brand-300 hover:text-brand-200 font-semibold hover:translate-x-1 inline-block transition-all"
                 >
-                  Masuk Aplikasi →
+                  Daftar Gratis →
                 </a>
               </li>
               <li>
                 <a
-                  href="https://wa.me/628123456789"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/demo"
                   class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all"
                 >
-                  Daftar Jemaat Baru
+                  Coba Demo
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/login"
+                  class="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all"
+                >
+                  Masuk Aplikasi
                 </a>
               </li>
             </ul>
@@ -823,6 +849,11 @@
 
     <script type="module">
       import { renderFeatureSection, renderChurchSection, renderSubscriptionSection } from "./src/render.js"
+
+      // Manage app berada di subdomain terpisah (app.gmim.web.id).
+      // Dev → port lokal; produksi → subdomain app.
+      const isLocalDev = ["localhost", "127.0.0.1"].includes(window.location.hostname)
+      const MANAGE_URL = isLocalDev ? "http://127.0.0.1:5173" : "https://app.gmim.web.id"
 
       // Mobile menu toggle (keep ids for tests)
       const btn = document.getElementById("hamburger-btn")
@@ -897,6 +928,15 @@
         reveals.forEach((el) => observer.observe(el))
       } else {
         reveals.forEach((el) => el.classList.add("active"))
+      }
+
+      // Prefix semua link app setelah render selesai (termasuk kartu paket yang dinamis)
+      if (MANAGE_URL) {
+        document.querySelectorAll('a[href^="/daftar"], a[href^="/demo"], a[href^="/login"]').forEach((a) => {
+          a.href = MANAGE_URL + a.getAttribute("href")
+          a.target = "_blank"
+          a.rel = "noopener"
+        })
       }
     </script>
   </body>

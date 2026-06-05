@@ -12,67 +12,78 @@
 export const features = [
   {
     icon: "📊",
-    title: "Pemasukan & Pengeluaran",
-    description: "Catat persembahan, kategori pemasukan, pengeluaran, dan saldo gereja secara terstruktur."
-  },
-  {
-    icon: "📄",
-    title: "Rekap Mingguan & Bulanan",
-    description: "Buat laporan periode mingguan atau bulanan untuk rapat, arsip, dan pertanggungjawaban."
-  },
-  {
-    icon: "👥",
-    title: "Role Pengguna",
-    description: "Bendahara mengakses semua menu, sementara pelayan khusus hanya menginput pemasukan."
-  },
-  {
-    icon: "🏛️",
-    title: "Multi Gereja",
-    description: "Setiap jemaat memiliki data, akun, dan subdomain sendiri dalam satu sistem SaaS."
+    title: "Buku Kas Digital",
+    description: "Catat persembahan, pengeluaran, dan saldo secara terstruktur. Saldo selalu terkini, tanpa spreadsheet."
   },
   {
     icon: "📈",
-    title: "Dashboard Keuangan",
-    description: "Pantau saldo, total pemasukan, total pengeluaran, dan transaksi terbaru dari satu halaman."
+    title: "Dashboard & Grafik",
+    description: "Pantau arus kas mingguan dan bulanan lewat grafik batang. Pemasukan biru, pengeluaran merah — sekilas langsung paham."
   },
   {
-    icon: "🔐",
-    title: "Admin SaaS",
-    description: "Developer/admin mengatur jemaat berlangganan, domain, paket, dan akun bendahara."
+    icon: "📄",
+    title: "Arus Kas & Tutup Buku",
+    description: "Lihat ringkasan per kategori dan per minggu. Tutup periode bulanan/tahunan untuk mengunci catatan."
+  },
+  {
+    icon: "🏗️",
+    title: "Inventaris Aset",
+    description: "Catat aset gereja (tanah, bangunan, kendaraan, alat musik) lengkap dengan nilai perolehan dan kondisi."
+  },
+  {
+    icon: "💼",
+    title: "Gaji & Honor",
+    description: "Kelola pegawai dan honorarium. Tandai dibayar → pengeluaran otomatis tercatat di buku kas."
+  },
+  {
+    icon: "👥",
+    title: "Multi Peran",
+    description: "Bendahara mengakses semua menu. Pelayan Khusus hanya input persembahan. Setiap aksi tercatat rapi."
   }
 ]
 
-/** @type {Array<{name: string, price: string, description: string, highlight?: boolean, features: string[]}>} */
+/** @type {Array<{name: string, price: string, yearlyPrice: string, description: string, highlight?: boolean, features: string[]}>} */
 export const subscriptionPlans = [
   {
     name: "Basic",
     price: "Rp 99.000",
-    description: "Untuk jemaat yang mulai beralih dari pencatatan manual.",
-    features: ["1 akun bendahara", "Pencatatan pemasukan dan pengeluaran", "Kategori transaksi", "Rekap bulanan"]
+    yearlyPrice: "Rp 999.000",
+    description: "Untuk jemaat kecil yang mulai beralih dari pencatatan manual.",
+    features: [
+      "Hingga 3 akun pengguna",
+      "Buku kas pemasukan & pengeluaran",
+      "Kategori persembahan & pengeluaran",
+      "Dashboard & grafik arus kas",
+      "Rekap mingguan & bulanan",
+      "Ekspor data CSV"
+    ]
   },
   {
     name: "Standard",
-    price: "Rp 179.000",
-    description: "Untuk jemaat yang membutuhkan alur kerja bendahara dan pelayan khusus.",
+    price: "Rp 199.000",
+    yearlyPrice: "Rp 1.999.000",
+    description: "Untuk jemaat yang butuh fitur lengkap dan manajemen aset.",
     highlight: true,
     features: [
       "Semua fitur Basic",
-      "Akun pelayan khusus",
-      "Dashboard keuangan",
-      "Rekap mingguan dan bulanan",
-      "Dukungan aktivasi subdomain"
+      "Hingga 10 akun pengguna",
+      "Inventaris aset gereja",
+      "Gaji & honor (auto-catat pengeluaran)",
+      "Tutup buku bulanan/tahunan",
+      "Persembahan online via Midtrans"
     ]
   },
   {
     name: "Premium",
-    price: "Rp 299.000",
-    description: "Untuk jemaat yang membutuhkan pengelolaan lebih lengkap dan prioritas dukungan.",
+    price: "Rp 399.000",
+    yearlyPrice: "Rp 3.999.000",
+    description: "Untuk jemaat besar dengan banyak pengguna dan prioritas dukungan.",
     features: [
       "Semua fitur Standard",
-      "Jumlah akun lebih fleksibel",
+      "Hingga 50 akun pengguna",
       "Prioritas dukungan teknis",
       "Pendampingan setup awal",
-      "Laporan siap cetak"
+      "Akses API & integrasi lanjutan"
     ]
   }
 ]
@@ -131,16 +142,25 @@ export function renderSubscriptionPlanCard(plan) {
     )
     .join("\n")
 
-  return `<div class="relative rounded-3xl border ${featuredClass} bg-white p-7">
+  const yearlyNote = plan.yearlyPrice
+    ? `<span class="mt-1 block text-xs text-slate-400">${escapeHtml(plan.yearlyPrice)}/tahun (hemat ~17%)</span>`
+    : ""
+
+  return `<div class="relative rounded-3xl border ${featuredClass} bg-white p-7 flex flex-col">
   ${badge}
   <h3 class="text-xl font-extrabold text-slate-900">${escapeHtml(plan.name)}</h3>
   <p class="mt-3 text-sm leading-relaxed text-slate-600">${escapeHtml(plan.description)}</p>
-  <div class="mt-6 flex items-end gap-1">
-    <span class="text-3xl font-extrabold text-slate-900">${escapeHtml(plan.price)}</span>
-    <span class="pb-1 text-sm font-semibold text-slate-500">/bulan</span>
+  <div class="mt-6">
+    <div class="flex items-end gap-1">
+      <span class="text-3xl font-extrabold text-slate-900">${escapeHtml(plan.price)}</span>
+      <span class="pb-1 text-sm font-semibold text-slate-500">/bulan</span>
+    </div>
+    ${yearlyNote}
   </div>
-  <ul class="mt-7 space-y-3">${items}</ul>
-  <a href="#kontak" class="mt-8 inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-5 py-3 text-sm font-extrabold text-white hover:bg-brand-700">Pilih Paket</a>
+  <ul class="mt-7 space-y-3 flex-1">${items}</ul>
+  <a href="/daftar" class="mt-8 inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-5 py-3 text-sm font-extrabold text-white hover:bg-brand-700 transition-colors">
+    Mulai Trial 14 Hari Gratis
+  </a>
 </div>`
 }
 
@@ -261,12 +281,20 @@ export function renderFullPage(options = {}) {
             <p class="text-lg text-gray-600 mt-4">
               Kelola keuangan gereja secara transparan, terstruktur, dan mudah diakses oleh seluruh jemaat dan pengurus.
             </p>
-            <a
-              href="https://app.gmim-keuangan.id/login"
-              class="inline-block mt-8 px-8 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors font-semibold"
-            >
-              Masuk ke Sistem
-            </a>
+            <div class="flex gap-3 mt-8">
+              <a
+                href="/daftar"
+                class="inline-block px-8 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors font-semibold"
+              >
+                Daftar Gratis
+              </a>
+              <a
+                href="/demo"
+                class="inline-block px-8 py-3 border-2 border-blue-700 text-blue-700 rounded-lg hover:bg-blue-50 transition-colors font-semibold"
+              >
+                Coba Demo
+              </a>
+            </div>
           </div>
           <div class="flex justify-center">
             <svg
