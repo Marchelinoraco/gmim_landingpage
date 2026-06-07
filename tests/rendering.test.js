@@ -151,10 +151,10 @@ describe("renderFeatureCard", () => {
 describe("renderFeatureSection", () => {
   it("merender fitur default", () => {
     const html = renderFeatureSection()
-    expect(html).toContain("Pemasukan &amp; Pengeluaran")
-    expect(html).toContain("Rekap Mingguan &amp; Bulanan")
-    expect(html).toContain("Role Pengguna")
-    expect(html).toContain("Admin SaaS")
+    expect(html).toContain("Buku Kas Digital")
+    expect(html).toContain("Dashboard &amp; Grafik")
+    expect(html).toContain("Arus Kas &amp; Tutup Buku")
+    expect(html).toContain("Multi Peran")
   })
 
   it("merender array fitur kustom", () => {
